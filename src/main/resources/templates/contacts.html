@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="lt" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<title>Contact</title>
+	<link rel="stylesheet" 
+				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+					integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+						crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/page-width.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/contacts.css}"/>		
+	<meta charset="utf-8">
+	
+</head>
+<body>
+
+	<div class="navigation" th:insert="navigation.html"></div>
+	
+	<div class="login" th:insert="login.html"></div>
+	
+	<div id="main-container" class="contact-info">
+		<a th:text="'My name is ' + ${name} + ' ' + ${lastName} + '.'"></a>
+		<a th:text="'E-mail: ' + ${email} + '.'"></a>
+		<a th:text="'Phone: ' + ${phone} + '.'"></a>
+	</div>
+	<!-- 
+	<footer class="footer" th:insert="footer.html"></footer>
+	 -->
+</body>
+</html>

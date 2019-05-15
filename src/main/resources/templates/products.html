@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="lt" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<title>Products</title>
+	<link rel="stylesheet" 
+				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+					integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+						crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/page-width.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/products.css}"/>
+	<meta charset="utf-8">
+	
+</head>
+	<body>
+		
+		<div class="navigation" th:insert="navigation.html"></div>
+	
+		<div class="login" th:insert="login.html"></div>
+	
+		<div class="my-header-page-name">
+			<h4>Products</h4>
+		</div>
+		
+		<!-- Product's cards -->
+		<div align="center" class="card-columns" id="cards-products">
+			<div id="card-of-product" class="card text-center" th:each="tempProducts : ${products}" style="width: 18rem;">
+				<img class="card-img-top" alt="Card image cap" th:src="@{/image/__${tempProducts.productImg}__}" height="225" width="275">
+				<div class="card-body">
+					<h4 class="card-title" th:text="${tempProducts.name}"></h4>
+					<h4 class="card-title" th:text="${tempProducts.model}"></h4>
+				</div>
+				<ul class="list-group list-group-flush w-100 align-items-stretch">
+					<li class="list-group-item" th:text="'Year: ' + ${tempProducts.year}"></li>
+					<li class="list-group-item" th:text="'Engine: ' + ${tempProducts.engine} + 'cc'"></li>
+					<li class="list-group-item" th:text="'Price: ' + ${tempProducts.price} + ' €'"></li>
+				</ul>
+				<div class="card-body">
+					<a th:href="@{'/add/update/upload/' + ${tempProducts.id}}" class="card-link" th:text="${tempProducts.name} + ' ' + ${tempProducts.model} + ' link page to update & delete'"></a>
+					<hr>
+					<a th:href="@{'/product/' + ${tempProducts.id}}" class="card-link" th:text="${tempProducts.name} + ' ' + ${tempProducts.model} + ' page ♥'"></a>
+				</div>
+			</div>
+		</div>
+		<!-- 
+		<div class="footer" th:insert="footer.html"></div>
+		 -->
+	</body>
+</html>

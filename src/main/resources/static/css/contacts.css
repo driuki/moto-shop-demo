@@ -1,0 +1,9 @@
+#main-container {
+	color: blue;
+	margin: 50px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	text-align: center;
+}

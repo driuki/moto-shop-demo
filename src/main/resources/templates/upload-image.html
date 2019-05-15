@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="lt" xmlns:th="http://www.thymeleaf.org">
+<head>
+		
+	<title>Update</title>
+	<link rel="stylesheet" 
+				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+					integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+						crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/page-width.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/upload-image.css}"/>	
+	<meta charset="utf-8">
+	
+</head>
+<body>
+
+ 	<div class="navigation" th:insert="navigation.html"></div>
+ 
+ 	<h3 class="name-header">Change data of product</h3>
+ 
+ 	<p class="name-text" th:text="'Motorcycle: ' + ${productById.name} + ' ' + ${productById.model}"></p>
+ 	
+ 	<div class="data-of-product-update">
+	 	<img th:src="@{/image/__${productById.productImg}__}" height="500" width="500"><br><br>
+	 	<div class="description">
+		 	<p>(This page need's some changes)</p>
+		 	
+		 	<form class="form-for-update" method="POST" th:object="${productById}" th:action="@{/add/update/upload/data/__${productById.id}__}">
+		 		
+		 		Name: <input class="btn btn-dark" type="text" th:field="*{name}"/>
+		 		Model: <input class="btn btn-dark" type="text" th:field="*{model}"/>
+		 		Year: <input class="btn btn-dark" type="number" th:field="*{year}"/>
+		 		Engine: <input class="btn btn-dark" type="number" th:field="*{engine}"/>
+		 		Price: <input class="btn btn-dark" type="number" th:field="*{price}"/>
+				Image Name(don't change there): <input class="btn btn-light" type="text" th:field="*{productImg}"/><br><br>
+		 		<input class="btn btn-warning" type="submit" value="Update Data">
+		 		
+		 	</form>
+	 	</div>
+ 	</div>
+ 	
+ 	<br>
+ 	
+ 	<div class="picture-update-product-delete">
+	 	<!-- Neradau kito geresnio varianto kaip padaryti jog galėčiau pakeisti ar ideti nuotrauka kaip tik idėdamas laukus ir jų nerodant -->
+	 	<form class="form-change-picture" method="POST" th:object="${productById}" th:action="@{/add/update/upload/__${productById.id}__}" enctype="multipart/form-data">
+	 	 	<input th:style="${productById} ? 'display:none' : 'display:none'" type="text" th:field="*{name}"/>
+	 	 	<input th:style="${productById} ? 'display:none' : 'display:none'" type="text" th:field="*{model}"/>
+	 	 	<input th:style="${productById} ? 'display:none' : 'display:none'" type="number" th:field="*{year}"/>
+	 	 	<input th:style="${productById} ? 'display:none' : 'display:none'" type="number" th:field="*{engine}"/>
+	 	 	<input th:style="${productById} ? 'display:none' : 'display:none'" type="number" th:field="*{price}"/>
+	 	 	Add or Update pic: <input class="btn btn-light" name="file" type="file"/><br><br>
+	 	 	<input class="btn btn-success"  type="submit" value="Add picture">
+	 	 	<a th:href="@{/add/update/delete(id=${productById.id})}"
+					class="btn btn-danger"
+					onclick="if(!(confirm('Will you delete this product'))) return false">
+				Delete
+			</a>
+	 	</form>
+
+ 	</div>
+ 	
+ 	<div class="go-back">
+ 		<a th:href="@{/product}">Go to Product List</a>
+ 	</div>
+ 	
+ 	<!-- 
+ 	<div class="footer" th:insert="footer.html"></div>
+ 	 -->
+ 	 
+</body>
+</html>

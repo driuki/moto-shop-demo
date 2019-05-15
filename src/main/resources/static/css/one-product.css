@@ -1,0 +1,25 @@
+.go-back {
+	margin: 25px;
+	text-align: center;
+}
+
+.product-data-container {
+	margin: 50px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	text-align: center;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.product-data-items{
+	display: -webkit-flex;
+	display: flex;
+	text-align: left;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}

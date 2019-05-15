@@ -1,0 +1,48 @@
+.name-header {
+	text-align: center;
+	margin: 25px;
+	color: blue;
+}
+
+.name-text {
+	text-align: center;
+	margin: 25px;
+	color: blue;
+}
+
+.data-of-product-update {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+
+.description {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.form-for-update{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.picture-update-product-delete {
+	margin: 25px;
+	width: 250px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.go-back {
+	margin: 25px;
+	text-align: center;
+}

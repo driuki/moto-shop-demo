@@ -1,0 +1,21 @@
+.my-header-page-name {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	margin: 25px;
+	color: blue;
+}
+
+#cards-products {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+
+#card-of-product{
+	margin: 25px;
+}

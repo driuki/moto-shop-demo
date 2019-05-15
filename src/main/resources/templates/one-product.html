@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="lt" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<title>Products</title>
+	<link rel="stylesheet" 
+				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+					integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+						crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/page-width.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/one-product.css}"/>		
+	<meta charset="utf-8">
+	
+</head>
+<body>
+
+	<div class="navigation" th:insert="navigation.html"></div>
+	
+	<div class="login" th:insert="login.html"></div>
+	
+	<div class="product-data-container">
+		<div class="product-data-items">
+			<p class="product-data-item" th:text="'Motorcycle: ' + ${product.name} + ' ' + ${product.model}"></p>
+		 	<p class="product-data-item" th:text="'Year: ' + ${product.year}"></p>
+		 	<p class="product-data-item" th:text="'Engine: ' + ${product.engine} + 'cc'"></p>
+		 	<p class="product-data-item" th:text="'Price: ' + ${product.price} + '€'"></p>
+	 	</div>
+	 	<div>
+			<img th:src="@{/image/__${product.productImg}__}" height="400" width="450">
+		</div>
+	</div>
+	
+	<div class="go-back">
+		<a th:href="@{/product}">Go to Product List</a>
+	</div>
+	
+	<!-- 
+	<div class="footer" th:insert="footer.html"></div>
+	 -->
+
+</body>
+</html>

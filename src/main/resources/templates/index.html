@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="lt" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<title>Home</title>
+	<link rel="stylesheet" 
+				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+					integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+						crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/page-width.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>		
+	<meta charset="utf-8">
+	
+</head>
+<body>
+
+	<div class="navigation" th:insert="navigation.html"></div>
+	
+	<div class="login" th:insert="login.html"></div>
+	
+	<p class="index-text">This is my index page of My Spring boot Demo shop</p>
+	
+	<p class="index-text">I will "sell" in this demo shop motorcycles ♥</p>
+	
+	<P class="index-text">There still are a lot of thing to add, fix</P>
+	<!-- 
+	<div class="footer" th:insert="footer.html"></div>
+	 -->
+</body>
+</html>

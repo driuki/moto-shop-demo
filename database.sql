@@ -111,10 +111,7 @@ INSERT INTO `product` VALUES
             (7, 'BMW', 'S 1000RR', 2019, 998, 19199, ''),
             (8, 'Kawasaki', 'Ninija ZX-10R', 2018, 998, 17199, ''),
             (9, 'Yamaha', 'R6', 2018, 600, 14499, ''),
-            (10, 'Kawasaki', 'Ninija ZX-6R', 2015, 600, 14500, '');
-            
-INSERT INTO `mydemoshopdatabase`.`users` (`username`, `password`, `firstName`, `lastName`, `roleId`, `email`, `address`) VALUES
-			('admin', 'admin', 'Darius', 'Gavėnai', '3', 'dargav999@gmail.com', 'Tauragė');            
+            (10, 'Kawasaki', 'Ninija ZX-6R', 2015, 600, 14500, '');            
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

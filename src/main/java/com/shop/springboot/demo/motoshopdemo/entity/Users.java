@@ -1,13 +1,16 @@
 package com.shop.springboot.demo.motoshopdemo.entity;
 
+import java.util.Collection;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,10 +34,10 @@ public class Users {
 	@Column(name="lastName")
 	private String lastName;
 	
-	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+	@ManyToMany(fetch = FetchType.LAZY, cascade= {CascadeType.PERSIST, CascadeType.MERGE,
 			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name="roleId")
-	private Role roleId;
+	private Collection<Role> roles;
 	
 	@Column(name="email")
 	private String email;
@@ -101,12 +104,12 @@ public class Users {
 		this.lastName = lastName;
 	}
 
-	public Role getRoleId() {
-		return roleId;
+	public Collection<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRoleId(Role roleId) {
-		this.roleId = roleId;
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 
 	public String getEmail() {
@@ -132,13 +135,13 @@ public class Users {
 	public void setUserImg(String userImg) {
 		this.userImg = userImg;
 	}
-
+	
 	/* toString */
 	@Override
 	public String toString() {
 		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", roleId=" + roleId + ", email=" + email + ", address=" + address
+				+ ", lastName=" + lastName + ", roles=" + roles + ", email=" + email + ", address=" + address
 				+ ", userImg=" + userImg + "]";
 	}
-	
+
 }

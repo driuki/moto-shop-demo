@@ -39,9 +39,12 @@
 .submit-form-button {
 	display: -webkit-flex;
 	display: flex;
-	-webkit-justify-content: flex-end;
-	justify-content: flex-end;
+	-webkit-flex-direction: row-reverse;
+	flex-direction: row-reverse;
 	margin: 5px;
 }
 
+.register-form {
+	margin: 5px;
+}
 

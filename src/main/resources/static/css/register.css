@@ -1,0 +1,28 @@
+.formContainer {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.form {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+	margin: 10px;
+}
+
+.formElement {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: baseline;
+	align-items: baseline;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	margin: 10px;
+}
+
+.inputPlace {
+	margin: 10px;
+}

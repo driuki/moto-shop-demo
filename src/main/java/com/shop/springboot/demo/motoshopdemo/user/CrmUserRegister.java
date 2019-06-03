@@ -24,11 +24,11 @@ public class CrmUserRegister {
 	private String matchingPassword;
 	
 	@NotNull(message = "Required")
-	@Size(min = 1, message = "Min symbols number - 1")
+	@Size(min = 2, message = "Min symbols number - 2")
 	private String firstName;
 	
 	@NotNull(message = "Required")
-	@Size(min = 1, message = "Min symbols number - 1")
+	@Size(min = 2, message = "Min symbols number - 2")
 	private String lastName;
 	
 	@ValidEmail
@@ -37,7 +37,7 @@ public class CrmUserRegister {
 	private String email;
 	
 	@NotNull(message = "Required")
-	
+	@Size(min = 2, message = "Required")
 	private String address;
 	
 	public CrmUserRegister() {

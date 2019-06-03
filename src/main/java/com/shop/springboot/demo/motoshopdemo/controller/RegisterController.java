@@ -14,65 +14,70 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shop.springboot.demo.motoshopdemo.entity.Users;
+import com.shop.springboot.demo.motoshopdemo.repository.UserRepository;
 import com.shop.springboot.demo.motoshopdemo.user.CrmUserRegister;
 
 @Controller
 public class RegisterController {
 	
-//	ERROR
-//	Error creating bean with name 'registerController': Unsatisfied dependency expressed through field 'userRegisterService';
-//	@Autowired
-//	private UserRegisterService userRegisterService;
-	
-	private Logger logger = Logger.getLogger(getClass().getName());
+//	private UserRepository userRepository;
+//	
+//	public RegisterController(UserRepository userRepository) {
+//		this.userRepository = userRepository;
+//	}
 	
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-	
-		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 		
-	}
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+	}	
 	
 	@GetMapping("/register")
-	public String registerForm(Model theModel) {
-		
-		theModel.addAttribute("crmUser", new CrmUserRegister());
+	public String registerForm() {
 		
 		return "register";
 		
 	}
 	
-//	@PostMapping("/processRegister")
-//	public String registerPost(@Valid @ModelAttribute("crmUser") CrmUserRegister theCrmUserRegister,
-//									BindingResult theBindingResult, Model theModel) {
+//	@PostMapping("/register")
+//	public String postRegisterForm(@Valid @ModelAttribute("crmUser") CrmUserRegister theCrmUserRegister, 
+//									BindingResult theBindingResult, 
+//									Model theModel) {
 //		
-//		String user = theCrmUserRegister.getUsername();
-//		logger.info("Registration of user: " + user);
+//		String username = theCrmUserRegister.getUsername();
+//		
+//		Users user = userRepository.findByUsername(username);
 //		
 //		if (theBindingResult.hasErrors()) {
-//			return "register";
+//			return "register?error";
 //		}
 //		
-//		Users isExisting = userRegisterService.findByUserName(user);
-//		
-//		if (isExisting != null) {
-//			theModel.addAttribute("crmUser", new CrmUserRegister());
-//			theModel.addAttribute("registrationError", "User already exists");
+//		if (user != null) {
 //			
-//			logger.warning("User already exists");
-//			return "register";
+//			theModel.addAttribute("crmUser", new CrmUserRegister());
+//			theModel.addAttribute("registrationError", "User name already exists.");
+//			
+//			return "/register?exists";
 //		}
 //		
-//		userRegisterService.save(theCrmUserRegister);
 //		
-//		logger.info("Successfully created user" + user);
 //		
-//		return "/";
+//		
+//		
+//		return "redirect:/";
 //		
 //	}
 	
 }
+
+//@RequestParam String username, 
+//@RequestParam String password,
+//@RequestParam String firstname,
+//@RequestParam String lastname,
+//@RequestParam String email,
+//@RequestParam String address

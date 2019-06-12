@@ -21,8 +21,6 @@ public class ProductDAOImpl implements ProductDAO {
 		this.entityManager = theEntityManager;
 	}
 	
-//	private SessionFactory sessionFactory;
-	
 	@Override
 	public List<Product> getProducts() {
 		

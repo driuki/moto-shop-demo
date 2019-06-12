@@ -6,37 +6,48 @@
 				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 					integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 						crossorigin="anonymous">
+	<style>
+		.error {color: red}
+	</style>
 	<link rel="icon" th:href="@{/image/pages-icon-2.ico}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/page-width.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
 	<meta charset="utf-8">
+	
 </head>
 <body>
 
 	<div class="navigation" th:insert="navigation.html"></div>
 	
+	<div >
+		
+	</div>
+	
 	<div class="formContainer">
-		<form action="register" class="form">
+		<form method="post" th:action="@{/register}" class="form">
 			<div class="formElement">
-				<p>Username: </p><input class="inputPlace" type="text" name="user-name"></input>
+				<p>Username: </p><input class="inputPlace" placeholder="Username (*)" type="text" name="user-name"></input>
 			</div>
 			<div class="formElement">
-				<p>First name: </p><input class="inputPlace" type="text" name="first-name"></input>
+				<p>First name: </p><input class="inputPlace" placeholder="First Name (*)" type="text" name="first-name"></input>
 			</div>
 			<div class="formElement">
-				<p>Last name: </p><input class="inputPlace" type="text" name="last-name"></input>
+				<p>Last name: </p><input class="inputPlace" placeholder="Last Name (*)" type="text" name="last-name"></input>
 			</div>
 			<div class="formElement">
-				<p>Password: </p><input class="inputPlace" type="password" name="pass"></input>
+				<p>Password: </p><input class="inputPlace" placeholder="Password (*)" type="password" name="pass"></input>
 			</div>
 			<div class="formElement">
-				<p>Repeat Password: </p><input class="inputPlace" type="password" name="pass"></input>
+				<p>Repeat Password: </p><input class="inputPlace" placeholder="Repeat Password (*)" type="password" name="pass"></input>
 			</div>
 			<div class="formElement">
-				<p>Email: </p><input class="inputPlace" type="text" name="email"></input>
+				<p>Email: </p><input class="inputPlace" placeholder="Email (*)" type="text" name="email"></input>
 			</div>
 			<div class="formElement">
-				<p>Address: </p><input class="inputPlace" type="text" name="address"></input>
+				<p>Address: </p><input class="inputPlace" placeholder="Address (*)" type="text" name="address"></input>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-primary">Register</button>
 			</div>
 		</form>
 	</div>

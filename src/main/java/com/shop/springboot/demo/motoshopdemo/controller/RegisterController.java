@@ -50,19 +50,22 @@ public class RegisterController {
 		
 	}
 	
-	@PostMapping("/register")
-	public String postRegisterForm(@Valid @ModelAttribute("crmUser") CrmUserRegister theCrmUserRegister, 
+	@PostMapping("/registration")
+	public String postRegisterForm(@Valid @ModelAttribute("crmUserRegister") CrmUserRegister theCrmUserRegister, 
 									BindingResult theBindingResult, 
 									Model theModel) {
 		
 		String username = theCrmUserRegister.getUsername();
 		
-		Users user = userRegisterService.findByUserName(username);
+		if (theBindingResult.hasErrors()) {
+			logger.warning("Has errors");
+			
+			System.out.println(theBindingResult.getAllErrors());
+			
+			return "register";
+		}
 		
-//		if (theBindingResult.hasErrors()) {
-//			logger.warning("Has errors");
-//			return "register";
-//		}
+		Users user = userRegisterService.findByUserName(username);
 		
 		if (user != null) {
 			

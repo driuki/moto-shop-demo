@@ -15,6 +15,11 @@ import com.shop.springboot.demo.motoshopdemo.entity.Users;
 public class AppConfig {
 	
     @Bean
+    public BCryptPasswordEncoder passswordEncoder() {
+    	return new BCryptPasswordEncoder();
+    }
+	
+    @Bean
     public UserRegisterDAO userRegisterDAO() {
         return new UserRegisterDAO() {
 			
@@ -30,11 +35,6 @@ public class AppConfig {
 				return null;
 			}
 		};
-    }
-    
-    @Bean
-    public BCryptPasswordEncoder passswordEncoder() {
-    	return new BCryptPasswordEncoder();
     }
 	
 }

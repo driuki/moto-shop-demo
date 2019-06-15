@@ -102,16 +102,16 @@ INSERT INTO `role` VALUES
             (4, 'employee');
             
 INSERT INTO `product` VALUES 
-			(1, 'Yamaha', 'R1', 2018, 998, 19199, ''),
-            (2, 'Suzuki', 'GSX-R1000', 2017, 998, 11900, ''),
-            (3, 'Yamaha', 'R1M', 2018, 998, 25199, ''),
-            (4, 'Hona', 'CBR 1000RR', 2016, 998, 18299, ''),
-            (5, 'Ducati', 'V4', 2018, 1103, 30000, ''),
-            (6, 'Aprilia', 'Tuono V4', 2018, 998, 28199, ''),
-            (7, 'BMW', 'S 1000RR', 2019, 998, 19199, ''),
-            (8, 'Kawasaki', 'Ninija ZX-10R', 2018, 998, 17199, ''),
-            (9, 'Yamaha', 'R6', 2018, 600, 14499, ''),
-            (10, 'Kawasaki', 'Ninija ZX-6R', 2015, 600, 14500, '');            
+			(1, 'Yamaha', 'R1', 2018, 998, 19199, 'yamaha_r1.jpg'),
+            (2, 'Suzuki', 'GSX-R1000', 2017, 998, 11900, 'Suzuki_GSX-R1000.jpg'),
+            (3, 'Yamaha', 'R1M', 2018, 998, 25199, 'Yamaha-R1M.jpg'),
+            (4, 'Hona', 'CBR 1000RR', 2016, 998, 18299, 'Hona_CBR1000RR_Fireblade.jpg'),
+            (5, 'Ducati', 'V4', 2018, 1103, 30000, 'ducati-panigale-v4.jpg'),
+            (6, 'Aprilia', 'Tuono V4', 2018, 998, 28199, 'Aprilia-Tuono-V4.jpg'),
+            (7, 'BMW', 'S 1000RR', 2019, 998, 19199, 'BMW_S_1000_RR.jpg'),
+            (8, 'Kawasaki', 'Ninija ZX-10R', 2018, 998, 17199, 'Kawasaki_NinjaZX-10R.jpg'),
+            (9, 'Yamaha', 'R6', 2018, 600, 14499, 'Yamaha-YZF-R6.jpg'),
+            (10, 'Kawasaki', 'Ninija ZX-6R', 2015, 600, 14500, 'kawasaki-ninja-zx-6r.jpg');            
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

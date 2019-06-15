@@ -13,32 +13,32 @@ public class CrmUserRegister {
 	
 	@NotNull(message = "Required")
 	@Size(min = 4, message = "Min symbols number - 4")
-	private String username;
+	public String username;
 	
 	@NotNull(message = "Required")
 	@Size(min = 6, message = "Min symbols count is 6")
-	private String password;
+	public String password;
 	
 	@NotNull(message = "Required")
 	@Size(min = 6, message = "Min symbols count is 6")
-	private String matchingPassword;
+	public String matchingPassword;
 	
 	@NotNull(message = "Required")
 	@Size(min = 2, message = "Min symbols number - 2")
-	private String firstName;
+	public String firstName;
 	
 	@NotNull(message = "Required")
 	@Size(min = 2, message = "Min symbols number - 2")
-	private String lastName;
+	public String lastName;
 	
 	@ValidEmail
 	@NotNull(message = "Required")
 	@Size(min = 5, message = "Required")
-	private String email;
+	public String email;
 	
 	@NotNull(message = "Required")
 	@Size(min = 2, message = "Required")
-	private String address;
+	public String address;
 	
 	public CrmUserRegister() {
 		
@@ -58,6 +58,14 @@ public class CrmUserRegister {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getMatchingPassword() {
+		return matchingPassword;
+	}
+
+	public void setMatchingPassword(String matchingPassword) {
+		this.matchingPassword = matchingPassword;
 	}
 
 	public String getFirstName() {
@@ -91,5 +99,7 @@ public class CrmUserRegister {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	
 	
 }

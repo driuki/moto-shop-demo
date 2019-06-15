@@ -24,27 +24,31 @@
 	</div>
 	
 	<div class="formContainer">
-		<form method="post" th:action="@{/register}" class="form">
+		<form method="post" th:object="${crmUserRegister}" th:action="@{/registration}" class="form">
+			
 			<div class="formElement">
-				<p>Username: </p><input class="inputPlace" placeholder="Username (*)" type="text" name="user-name"></input>
+				<p>Username: </p><input class="inputPlace" th:value="*{username}" placeholder="Username (*)" type="text" name="username"></input>
+			</div>
+			<!-- <div th:if="">
+				<p></p>
+			</div> -->
+			<div class="formElement">
+				<p>First name: </p><input class="inputPlace" th:value="*{firstName}" placeholder="First Name (*)" type="text" name="firstName"></input>
 			</div>
 			<div class="formElement">
-				<p>First name: </p><input class="inputPlace" placeholder="First Name (*)" type="text" name="first-name"></input>
+				<p>Last name: </p><input class="inputPlace" th:value="*{lastName}" placeholder="Last Name (*)" type="text" name="lastName"></input>
 			</div>
 			<div class="formElement">
-				<p>Last name: </p><input class="inputPlace" placeholder="Last Name (*)" type="text" name="last-name"></input>
+				<p>Password: </p><input class="inputPlace" th:value="*{password}" placeholder="Password (*)" type="password" name="password"></input>
 			</div>
 			<div class="formElement">
-				<p>Password: </p><input class="inputPlace" placeholder="Password (*)" type="password" name="pass"></input>
+				<p>Repeat Password: </p><input class="inputPlace" th:value="*{matchingPassword}" placeholder="Repeat Password (*)" type="password" name="matchingPassword"></input>
 			</div>
 			<div class="formElement">
-				<p>Repeat Password: </p><input class="inputPlace" placeholder="Repeat Password (*)" type="password" name="pass"></input>
+				<p>Email: </p><input class="inputPlace" th:value="*{email}" placeholder="Email (*)" type="text" name="email"></input>
 			</div>
 			<div class="formElement">
-				<p>Email: </p><input class="inputPlace" placeholder="Email (*)" type="text" name="email"></input>
-			</div>
-			<div class="formElement">
-				<p>Address: </p><input class="inputPlace" placeholder="Address (*)" type="text" name="address"></input>
+				<p>Address: </p><input class="inputPlace" th:value="*{address}" placeholder="Address (*)" type="text" name="address"></input>
 			</div>
 			<div>
 				<button type="submit" class="btn btn-primary">Register</button>

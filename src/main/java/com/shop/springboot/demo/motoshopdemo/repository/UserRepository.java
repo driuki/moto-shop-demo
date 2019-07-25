@@ -1,14 +1,14 @@
 package com.shop.springboot.demo.motoshopdemo.repository;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.shop.springboot.demo.motoshopdemo.entity.Users;
 import com.shop.springboot.demo.motoshopdemo.user.CrmUserRegister;
 
-public interface UserRepository extends UserDetailsService {
+public interface UserRepository extends PagingAndSortingRepository<Users, Integer> {
 	
 	Users findByUsername(String username);
-	
-	void save(CrmUserRegister crmUser);
+
+	Users save(CrmUserRegister theCrmUserRegister);
 	
 }

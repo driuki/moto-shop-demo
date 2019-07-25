@@ -16,18 +16,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.shop.springboot.demo.motoshopdemo.entity.Users;
+import com.shop.springboot.demo.motoshopdemo.repository.UserRepository;
 import com.shop.springboot.demo.motoshopdemo.service.UserRegisterService;
 import com.shop.springboot.demo.motoshopdemo.user.CrmUserRegister;
+
+/**
+ * @author Darius Gavenia
+ * 
+ * <p>
+ * It is for registration
+ * <p>
+ * 
+ */
 
 @Controller
 public class RegisterController {
 	
-	private UserRegisterService userRegisterService;
+//	@Autowired
+//	private UserRegisterService userRegisterService;
 	
 	@Autowired
-	public RegisterController(UserRegisterService userRegisterService) {
-		this.userRegisterService = userRegisterService;
-	}
+	private UserRepository userRepository;
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
@@ -37,7 +46,7 @@ public class RegisterController {
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-	}	
+	}
 	
 	@GetMapping("/register")
 	public String registerForm(Model theModel) {
@@ -65,7 +74,9 @@ public class RegisterController {
 			return "register";
 		}
 		
-		Users user = userRegisterService.findByUserName(username);
+//		Users user = userRegisterService.findByUserName(username);
+		
+		Users user = userRepository.findByUsername(username);
 		
 		if (user != null) {
 			
@@ -77,7 +88,9 @@ public class RegisterController {
 			return "register";
 		}
 		
-		userRegisterService.save(theCrmUserRegister);
+		user = this.userRepository.save(theCrmUserRegister);
+		
+//		userRegisterService.save(theCrmUserRegister);
 		
 		logger.info("Succesfully created user: " + username);
 		

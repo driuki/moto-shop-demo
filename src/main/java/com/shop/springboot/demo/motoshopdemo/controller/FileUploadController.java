@@ -84,8 +84,6 @@ public class FileUploadController {
 			
 			productRepository.save(product);
 			
-//			productService.saveUpdateProduct(product);
-			
 		}
 		
 		return "redirect:/product";

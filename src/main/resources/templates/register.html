@@ -19,10 +19,6 @@
 
 	<div class="navigation" th:insert="navigation.html"></div>
 	
-	<div >
-		
-	</div>
-	
 	<div class="formContainer">
 		<form method="post" th:object="${crmUserRegister}" th:action="@{/registration}" class="form">
 			
@@ -33,22 +29,22 @@
 				<p></p>
 			</div> -->
 			<div class="formElement">
-				<p>First name: </p><input class="inputPlace" th:value="*{firstName}" placeholder="First Name (*)" type="text" name="firstName"></input>
+				<p>First name: </p><input class="inputPlace" th:value="${crmUserRegister.firstName}" placeholder="First Name (*)" type="text" name="firstName"></input>
 			</div>
 			<div class="formElement">
-				<p>Last name: </p><input class="inputPlace" th:value="*{lastName}" placeholder="Last Name (*)" type="text" name="lastName"></input>
+				<p>Last name: </p><input class="inputPlace" th:value="${crmUserRegister.lastName}" placeholder="Last Name (*)" type="text" name="lastName"></input>
 			</div>
 			<div class="formElement">
-				<p>Password: </p><input class="inputPlace" th:value="*{password}" placeholder="Password (*)" type="password" name="password"></input>
+				<p>Password: </p><input class="inputPlace" th:value="${crmUserRegister.password}" placeholder="Password (*)" type="password" name="password"></input>
 			</div>
 			<div class="formElement">
-				<p>Repeat Password: </p><input class="inputPlace" th:value="*{matchingPassword}" placeholder="Repeat Password (*)" type="password" name="matchingPassword"></input>
+				<p>Repeat Password: </p><input class="inputPlace" th:value="${crmUserRegister.matchingPassword}" placeholder="Repeat Password (*)" type="password" name="matchingPassword"></input>
 			</div>
 			<div class="formElement">
-				<p>Email: </p><input class="inputPlace" th:value="*{email}" placeholder="Email (*)" type="text" name="email"></input>
+				<p>Email: </p><input class="inputPlace" th:value="${crmUserRegister.email}" placeholder="Email (*)" type="text" name="email"></input>
 			</div>
 			<div class="formElement">
-				<p>Address: </p><input class="inputPlace" th:value="*{address}" placeholder="Address (*)" type="text" name="address"></input>
+				<p>Address: </p><input class="inputPlace" th:value="${crmUserRegister.address}" placeholder="Address (*)" type="text" name="address"></input>
 			</div>
 			<div>
 				<button type="submit" class="btn btn-primary">Register</button>

@@ -18,23 +18,21 @@ public class AppConfig {
     public BCryptPasswordEncoder passswordEncoder() {
     	return new BCryptPasswordEncoder();
     }
-	
+    
     @Bean
     public UserRegisterDAO userRegisterDAO() {
         return new UserRegisterDAO() {
 			
 			@Override
 			public void save(Users users) {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			@Override
 			public Users findByUserName(String userName) {
-				// TODO Auto-generated method stub
 				return null;
 			}
 		};
     }
-	
+    
 }

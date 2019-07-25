@@ -12,17 +12,18 @@ import com.shop.springboot.demo.motoshopdemo.entity.Role;
 @Repository
 public class RoleDAOImpl implements RoleDAO {
 	
-	private EntityManager entityManager;
+//	@Autowired
+//	private SessionFactory sessionFactory;
 	
 	@Autowired
-	public RoleDAOImpl(EntityManager theEntityManager) {
-		this.entityManager = theEntityManager;
-	}
+	private EntityManager entityManager;
 	
 	@Override
 	public Role findRoleByName(String theRoleName) {
 		
 		Session session = entityManager.unwrap(Session.class);
+		
+//		Session session = sessionFactory.getCurrentSession();
 		
 		Query<Role> theQuery = session.createQuery("FROM Role WHERE role=:roleName", Role.class);
 		

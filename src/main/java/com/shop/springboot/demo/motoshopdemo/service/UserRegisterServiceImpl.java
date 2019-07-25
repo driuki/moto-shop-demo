@@ -2,6 +2,7 @@ package com.shop.springboot.demo.motoshopdemo.service;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +23,16 @@ import com.shop.springboot.demo.motoshopdemo.user.CrmUserRegister;
 @Service
 public class UserRegisterServiceImpl implements UserRegisterService {
 
-	private RoleDAO roleDao;
-
-	private UserRegisterDAO userRegisterDAO;
-	
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	@Autowired
-	public UserRegisterServiceImpl(RoleDAO roleDao, UserRegisterDAO userRegisterDAO, BCryptPasswordEncoder bCryptPasswordEncoder) {
-		this.roleDao = roleDao;
-		this.userRegisterDAO = userRegisterDAO;
-		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-	}
+	private RoleDAO roleDao;
+
+	@Autowired
+	private UserRegisterDAO userRegisterDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
 	@Transactional
@@ -44,6 +43,7 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 	@Override
 	@Transactional
 	public void save(CrmUserRegister crmUser) {
+		logger.info("\n\nSaving in service");
 		Users users = new Users();
 		users.setUsername(crmUser.getUsername());
 		users.setPassword(bCryptPasswordEncoder.encode(crmUser.getPassword()));
@@ -53,8 +53,9 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 		users.setAddress(crmUser.getAddress());
 		
 		users.setRoles(Arrays.asList(roleDao.findRoleByName("customer")));
-		
+		logger.info("\n\nSaving in dao");
 		userRegisterDAO.save(users);
+		
 	}
 
 	@Override

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -28,15 +29,16 @@ public class Users {
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="firstName")
-	private String firstName;
+	@Column(name="first_name")
+	private String first_name;
 	
-	@Column(name="lastName")
-	private String lastName;
+	@Column(name="last_name")
+	private String last_name;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinColumn(name="roleId")
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "user_roles", 
+	joinColumns = @JoinColumn(name = "user_id"),
+	inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Collection<Role> roles;
 	
 	@Column(name="email")
@@ -44,21 +46,29 @@ public class Users {
 	
 	@Column(name="address")
 	private String address;
-	
-	@Column(name="userImg")
-	private String userImg;
 
 	/* CONSTRUCTORS */
 	public Users() {
 		
 	}
+	
+	public Users(String username, String password, String first_name, String last_name, Collection<Role> roles,
+			String email, String address) {
+		this.username = username;
+		this.password = password;
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.roles = roles;
+		this.email = email;
+		this.address = address;
+	}
 
-	public Users(String username, String password, String firstName, String lastName, String email,
+	public Users(String username, String password, String first_name, String last_name, String email,
 			String address) {
 		this.username = username;
 		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.first_name = first_name;
+		this.last_name = last_name;
 		this.email = email;
 		this.address = address;
 	}
@@ -89,19 +99,19 @@ public class Users {
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return first_name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String first_name) {
+		this.first_name = first_name;
 	}
 
 	public String getLastName() {
-		return lastName;
+		return last_name;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastName(String last_name) {
+		this.last_name = last_name;
 	}
 
 	public Collection<Role> getRoles() {
@@ -128,20 +138,11 @@ public class Users {
 		this.address = address;
 	}
 
-	public String getUserImg() {
-		return userImg;
-	}
-
-	public void setUserImg(String userImg) {
-		this.userImg = userImg;
-	}
-	
 	/* toString */
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", roles=" + roles + ", email=" + email + ", address=" + address
-				+ ", userImg=" + userImg + "]";
+		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + first_name
+				+ ", lastName=" + last_name + ", roles=" + roles + ", email=" + email + ", address=" + address + "]";
 	}
-
+	
 }

@@ -14,17 +14,18 @@ import com.shop.springboot.demo.motoshopdemo.entity.Product;
 @Repository
 public class ProductDAOImpl implements ProductDAO {
 	
-	private EntityManager entityManager;
+//	@Autowired
+//	private SessionFactory sessionFactory;
 	
 	@Autowired
-	public ProductDAOImpl(EntityManager theEntityManager) {
-		this.entityManager = theEntityManager;
-	}
+	private EntityManager entityManager;
 	
 	@Override
 	public List<Product> getProducts() {
 		
 		Session session = entityManager.unwrap(Session.class);
+		
+//		Session session = sessionFactory.getCurrentSession();
 		
 		Query<Product> theQuery =
 				session.createQuery("FROM Product", Product.class);
@@ -39,6 +40,8 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		Session session = entityManager.unwrap(Session.class);
 		
+//		Session session = sessionFactory.getCurrentSession();
+		
 		Product theProduct = session.get(Product.class, id);
 		
 		return theProduct;
@@ -49,6 +52,8 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		Session session = entityManager.unwrap(Session.class);
 		
+//		Session session = sessionFactory.getCurrentSession();
+		
 		session.saveOrUpdate(theProduct);
 		
 	}
@@ -57,6 +62,8 @@ public class ProductDAOImpl implements ProductDAO {
 	public void deleteProduct(int id) {
 		
 		Session session = entityManager.unwrap(Session.class);
+		
+//		Session session = sessionFactory.getCurrentSession();
 		
 		@SuppressWarnings("unchecked")
 		Query<Product> theQuery =

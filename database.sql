@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS `myDemoShopDataBase`.`role` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `myDemoShopDataBase`.`users`
 -- -----------------------------------------------------
@@ -31,12 +30,11 @@ CREATE TABLE IF NOT EXISTS `myDemoShopDataBase`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
-  `firstName` VARCHAR(50) NOT NULL,
-  `lastName` VARCHAR(45) NOT NULL,
+  `first_name` VARCHAR(50) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
   `roleId` INT NOT NULL DEFAULT 1,
   `email` VARCHAR(50) NOT NULL,
   `address` VARCHAR(150) NOT NULL,
-  `userImg` VARCHAR(150) NULL,
   PRIMARY KEY (`id`),
   INDEX `id_idx` (`roleId` ASC),
   CONSTRAINT `id`
@@ -44,6 +42,20 @@ CREATE TABLE IF NOT EXISTS `myDemoShopDataBase`.`users` (
     REFERENCES `myDemoShopDataBase`.`role` (`id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `myDemoShopDataBase`.`users`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `myDemoShopDataBase`.`user_roles` (
+	`user_id` INT NOT NULL,
+	`role_id` INT NOT NULL,
+	CONSTRAINT `user_id_f`
+		FOREIGN KEY (`user_id`)
+		REFERENCES `myDemoShopDataBase`.`users` (`id`),
+	CONSTRAINT `role_id_f`
+		FOREIGN KEY (`role_id`)
+		REFERENCES `myDemoShopDataBase`.`role` (`id`))
+ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `myDemoShopDataBase`.`product`
@@ -96,10 +108,10 @@ CREATE TABLE IF NOT EXISTS `myDemoShopDataBase`.`cart_content` (
 ENGINE = InnoDB;
 
 INSERT INTO `role` VALUES
-			(1, 'customer'),
-            (2, 'manager'),
-            (3, 'admin'),
-            (4, 'employee');
+			(1, 'ROLE_CUSTOMER'),
+            (2, 'ROLE_MANAGER'),
+            (3, 'ROLE_ADMIN'),
+            (4, 'ROLE_EMPLOYEE');
             
 INSERT INTO `product` VALUES 
 			(1, 'Yamaha', 'R1', 2018, 998, 19199, 'yamaha_r1.jpg'),
